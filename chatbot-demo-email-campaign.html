@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Demo — What your chatbot looks like on YOUR site | Strong Website Design WJ</title>
+<style>
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;margin:0;color:#111}
+  .hero{background:linear-gradient(135deg,#1e3a8a,#1a56db);color:#fff;padding:60px 24px;text-align:center}
+  .hero h1{margin:0 0 10px;font-size:32px}
+  .hero p{margin:0;opacity:.9;font-size:17px}
+  .wrap{max-width:760px;margin:0 auto;padding:32px 24px}
+  .card{border:1px solid #e5e7eb;border-radius:12px;padding:20px;margin:16px 0}
+  .card h2{margin-top:0;font-size:20px}
+  .note{background:#fffbeb;border:1px solid #fde68a;border-radius:10px;padding:14px 16px;font-size:14px;margin:20px 0}
+  .cta{background:#16a34a;color:#fff;border:none;border-radius:10px;padding:14px 28px;font-size:17px;font-weight:700;cursor:pointer}
+  footer{text-align:center;color:#888;font-size:12px;padding:30px}
+  footer a{color:#1a56db}
+</style>
+</head>
+<body>
+<div class="hero">
+  <h1>Maple &amp; Main Plumbing — West Jordan, UT</h1>
+  <p><em>This is a sample site. The blue 💬 bubble in the corner is the chatbot from Strong Website Design WJ.</em></p>
+</div>
+<div class="wrap">
+  <div class="note">👉 <strong>Try it right now:</strong> tap the 💬 bubble, ask about hours, pricing, or services — then tap "Get a quote" and see how a lead reaches the owner. This whole thing installs with one paste and needs nothing from you afterward.</div>
+  <div class="card">
+    <h2>Drain cleaning, water heaters, remodels</h2>
+    <p>Family-owned shop serving the Salt Lake Valley since 2009. Same-day service on most calls.</p>
+  </div>
+  <div class="card">
+    <h2>What customers get after hours</h2>
+    <p>Right now, after 6 PM this page just sits here. With the bot, a visitor at 9 PM asks about a water heater, gets an answer, leaves their number — and the owner wakes up to a lead email instead of a missed call.</p>
+  </div>
+  <div class="card" style="text-align:center">
+    <h2>The pitch, plain</h2>
+    <p><strong>$500 installed, $99/month.</strong> A custom chatbot built for your business and installed on your website. The $99/mo Care Plan covers hosting, uptime monitoring, monthly content updates, and priority support — cancel anytime. No logins handed over. You approve it, it's yours.</p>
+    <button class="cta" onclick="alert('This is the demo — on your live site this button would start your order.')">Get the chatbot package</button>
+  </div>
+  <footer>Demo page from Strong Website Design WJ — questions? <a href="mailto:websitedesignwjutah@gmail.com">websitedesignwjutah@gmail.com</a></footer>
+</div>
+
+<!-- DEMO CONFIG: pre-filled for the sample business. In the real snippet, the buyer edits this block. -->
+<style>
+  #qcb-launcher{position:fixed;right:20px;bottom:20px;width:60px;height:60px;border-radius:50%;background:#1a56db;color:#fff;border:none;cursor:pointer;font-size:28px;box-shadow:0 4px 14px rgba(0,0,0,.25);z-index:9998}
+  #qcb-panel{position:fixed;right:20px;bottom:92px;width:340px;max-width:calc(100vw - 40px);height:460px;max-height:70vh;background:#fff;border-radius:14px;box-shadow:0 8px 30px rgba(0,0,0,.25);display:none;flex-direction:column;overflow:hidden;z-index:9999;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif}
+  #qcb-panel.open{display:flex}
+  #qcb-head{background:#1a56db;color:#fff;padding:12px 14px;font-weight:700;font-size:15px;display:flex;justify-content:space-between;align-items:center}
+  #qcb-head button{background:none;border:none;color:#fff;font-size:18px;cursor:pointer}
+  #qcb-msgs{flex:1;overflow-y:auto;padding:12px;display:flex;flex-direction:column;gap:8px;background:#f3f4f6}
+  .qcb-msg{max-width:85%;padding:9px 12px;border-radius:12px;font-size:14px;line-height:1.4}
+  .qcb-bot{background:#fff;color:#111;align-self:flex-start;border:1px solid #e5e7eb}
+  .qcb-user{background:#1a56db;color:#fff;align-self:flex-end}
+  .qcb-quick{display:flex;flex-wrap:wrap;gap:6px}
+  .qcb-quick button{background:#eef2ff;border:1px solid #c7d2fe;color:#1a56db;border-radius:16px;padding:5px 10px;font-size:12px;cursor:pointer}
+  #qcb-inputbar{display:flex;border-top:1px solid #e5e7eb}
+  #qcb-input{flex:1;border:none;padding:12px;font-size:14px;outline:none}
+  #qcb-send{background:#1a56db;color:#fff;border:none;padding:0 16px;font-size:14px;cursor:pointer}
+  #qcb-form{padding:10px 12px;border-top:1px solid #e5e7eb;background:#fff;display:none}
+  #qcb-form input,#qcb-form textarea{width:100%;box-sizing:border-box;margin:4px 0;padding:8px;font-size:13px;border:1px solid #d1d5db;border-radius:8px}
+  #qcb-form button{width:100%;background:#16a34a;color:#fff;border:none;border-radius:8px;padding:10px;font-size:14px;font-weight:700;cursor:pointer;margin-top:4px}
+</style>
+<div id="qcb-panel" role="dialog" aria-label="Chat with us">
+  <div id="qcb-head"><span id="qcb-title">Chat with us</span><button onclick="document.getElementById('qcb-panel').classList.remove('open')" aria-label="Close">×</button></div>
+  <div id="qcb-msgs"></div>
+  <div class="qcb-quick" id="qcb-quick" style="padding:8px 12px;background:#f3f4f6"></div>
+  <div id="qcb-form">
+    <input id="qcb-name" placeholder="Your name">
+    <input id="qcb-phone" placeholder="Your phone number">
+    <textarea id="qcb-need" rows="2" placeholder="What do you need?"></textarea>
+    <button onclick="qcbSendLead()">Send — we'll call you back</button>
+  </div>
+  <div id="qcb-inputbar">
+    <input id="qcb-input" placeholder="Ask a question…" onkeydown="if(event.key==='Enter')qcbAsk()">
+    <button id="qcb-send" onclick="qcbAsk()">Send</button>
+  </div>
+</div>
+<button id="qcb-launcher" onclick="qcbToggle()" aria-label="Open chat">💬</button>
+<script>
+var QCB = {
+  business: "Maple & Main Plumbing",
+  phone: "(801) 555-0147",
+  phoneHref: "+18015550147",
+  email: "owner@mapleandmain.example",
+  greeting: "Hi! I'm the Maple & Main assistant. Ask me about hours, pricing, or services — or tap a topic below.",
+  faqs: [
+    { keys: ["hour","open","close","when"],
+      a: "We're open Mon–Fri 8 AM–6 PM, Sat 9 AM–2 PM. Emergency calls 24/7." },
+    { keys: ["price","cost","much","charge","quote","estimate"],
+      a: "Drain cleaning starts at $149, water heater installs from $1,100 — but every job's different. Tap 'Get a quote' and we'll call you back with an exact number." },
+    { keys: ["service","offer","do you do","what do"],
+      a: "Drain cleaning, water heater install/repair, fixture installs, and remodel rough-ins." },
+    { keys: ["where","located","address","area","serve"],
+      a: "Based in West Jordan — we serve the whole Salt Lake Valley." },
+    { keys: ["book","schedule","appointment","come out","visit"],
+      a: "Tap 'Get a quote' below with your name and number and we'll call you back to schedule — usually same day." }
+  ],
+  fallback: "Good question — I don't have that answer yet. Leave your info below and the owner will get back to you personally."
+};
+var qcbOpened = false;
+function qcbToggle(){
+  var p = document.getElementById('qcb-panel');
+  p.classList.toggle('open');
+  if(!qcbOpened){ qcbOpened = true; qcbSay(QCB.greeting, 'bot'); qcbQuickButtons(); }
+}
+function qcbSay(text, who){
+  var m = document.createElement('div');
+  m.className = 'qcb-msg qcb-' + who;
+  m.textContent = text;
+  document.getElementById('qcb-msgs').appendChild(m);
+  m.scrollIntoView();
+}
+function qcbQuickButtons(){
+  var q = document.getElementById('qcb-quick');
+  q.innerHTML = '';
+  ["Hours","Pricing","Services","Get a quote"].forEach(function(t){
+    var b = document.createElement('button');
+    b.textContent = t;
+    b.onclick = function(){ document.getElementById('qcb-input').value = t; qcbAsk(); };
+  });
+}
+function qcbAsk(){
+  var box = document.getElementById('qcb-input');
+  var text = box.value.trim();
+  if(!text) return;
+  box.value = '';
+  qcbSay(text, 'user');
+  var lower = text.toLowerCase();
+  if(lower.indexOf('quote') > -1 || lower.indexOf('call') > -1){ qcbLeadForm(); return; }
+  var best = null, bestScore = 0;
+  QCB.faqs.forEach(function(f){
+    var s = 0;
+    f.keys.forEach(function(k){ if(lower.indexOf(k) > -1) s++; });
+    if(s > bestScore){ bestScore = s; best = f; }
+  });
+  qcbSay(best ? best.a : QCB.fallback, 'bot');
+  if(!best){ qcbLeadForm(); }
+  var call = document.createElement('div');
+  call.className = 'qcb-msg qcb-bot';
+  call.innerHTML = 'Prefer to talk? Call us: <a href="tel:' + QCB.phoneHref + '">' + QCB.phone + '</a>';
+  document.getElementById('qcb-msgs').appendChild(call);
+  call.scrollIntoView();
+}
+function qcbLeadForm(){
+  qcbSay("Drop your info and the owner will call you back:", 'bot');
+  document.getElementById('qcb-form').style.display = 'block';
+}
+function qcbSendLead(){
+  var n = document.getElementById('qcb-name').value.trim();
+  var p = document.getElementById('qcb-phone').value.trim();
+  var d = document.getElementById('qcb-need').value.trim();
+  if(!n || !p){ qcbSay("Please add your name and phone number so we can reach you.", 'bot'); return; }
+  var subject = encodeURIComponent("New website lead — " + QCB.business);
+  var body = encodeURIComponent("Name: " + n + "\nPhone: " + p + "\nNeeds: " + d);
+  window.location.href = "mailto:" + QCB.email + "?subject=" + subject + "&body=" + body;
+  qcbSay("Thanks " + n + "! Your email app should open with the message ready — hit send and the owner gets it instantly.", 'bot');
+  document.getElementById('qcb-form').style.display = 'none';
+}
+document.getElementById('qcb-title').textContent = "Chat with " + QCB.business;
+</script>
+</body>
+</html>
