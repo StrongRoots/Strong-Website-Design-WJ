@@ -1,0 +1,91 @@
+/* Strong Website Design WJ chatbot — adapted from the proven Strong Roots widget.
+   Brand: navy #0f2a43 + amber #f5a623. */
+#sw-chat-btn {
+  position: fixed; right: 20px; bottom: 20px; z-index: 9998;
+  width: 60px; height: 60px; border-radius: 50%;
+  background: #0f2a43; border: none; cursor: pointer;
+  box-shadow: 0 4px 14px rgba(0,0,0,.28);
+  display: flex; align-items: center; justify-content: center;
+  transition: transform .15s ease;
+}
+#sw-chat-btn:hover { transform: scale(1.06); }
+#sw-chat-btn svg { width: 30px; height: 30px; fill: #f5a623; }
+#sw-chat-btn .sw-dot {
+  position: absolute; top: -4px; right: -4px; min-width: 22px; height: 22px;
+  background: #ef4444; border-radius: 11px; border: 2px solid #fff;
+  color: #fff; font-size: 12px; font-weight: 700; line-height: 1;
+  display: flex; align-items: center; justify-content: center;
+  padding: 0 5px; box-sizing: border-box;
+  animation: sw-pulse 1.6s ease-in-out infinite;
+}
+#sw-chat-btn .sw-dot.sw-hide { display: none; }
+@keyframes sw-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.18); }
+}
+#sw-chat-panel {
+  position: fixed; right: 20px; bottom: 92px; z-index: 9999;
+  width: 378px; max-width: calc(100vw - 40px); height: 540px; max-height: calc(100vh - 130px);
+  background: #fff; border-radius: 16px; overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0,0,0,.3);
+  display: none; flex-direction: column;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+#sw-chat-panel.sw-open { display: flex; }
+#sw-chat-head {
+  background: #0f2a43; color: #fff; padding: 14px 16px;
+  display: flex; align-items: center; gap: 10px;
+}
+#sw-chat-head .sw-avatar {
+  width: 38px; height: 38px; border-radius: 50%; background: #f5a623;
+  display: flex; align-items: center; justify-content: center; font-size: 21px; flex: none;
+}
+#sw-chat-head .sw-title { font-weight: 700; font-size: 15px; }
+#sw-chat-head .sw-sub { font-size: 12px; opacity: .85; }
+#sw-chat-head .sw-sub::before {
+  content: ""; display: inline-block; width: 8px; height: 8px; border-radius: 50%;
+  background: #4ade80; margin-right: 5px;
+}
+#sw-chat-close {
+  margin-left: auto; background: none; border: none; color: #fff;
+  font-size: 22px; cursor: pointer; line-height: 1; padding: 4px;
+}
+#sw-chat-body { flex: 1; overflow-y: auto; padding: 14px; background: #f2f6fa; }
+.sw-msg { max-width: 82%; padding: 10px 13px; border-radius: 14px; font-size: 14px; line-height: 1.45; margin-bottom: 10px; white-space: pre-line; }
+.sw-bot { background: #fff; border: 1px solid #e5e7eb; border-bottom-left-radius: 4px; color: #1f2937; }
+.sw-user { background: #0f2a43; color: #fff; margin-left: auto; border-bottom-right-radius: 4px; }
+.sw-msg a { color: #16395c; font-weight: 600; }
+.sw-user a { color: #fff; }
+#sw-quick { display: flex; flex-wrap: wrap; gap: 6px; padding: 0 14px 10px; background: #f2f6fa; }
+.sw-chip {
+  background: #fff; border: 1px solid #0f2a43; color: #0f2a43; border-radius: 20px;
+  padding: 6px 12px; font-size: 13px; cursor: pointer;
+}
+.sw-chip:hover { background: #0f2a43; color: #fff; }
+#sw-chat-foot { display: flex; border-top: 1px solid #e5e7eb; background: #fff; }
+#sw-chat-input {
+  flex: 1; border: none; padding: 13px 14px; font-size: 14px; outline: none;
+}
+#sw-chat-send {
+  background: #f5a623; color: #0f2a43; border: none; padding: 0 18px;
+  font-size: 14px; font-weight: 800; cursor: pointer;
+}
+#sw-chat-send:hover { background: #d98d0b; }
+.sw-lead-form input, .sw-lead-form select, .sw-lead-form textarea {
+  width: 100%; box-sizing: border-box; margin-bottom: 8px; padding: 9px 10px;
+  border: 1px solid #d1d5db; border-radius: 8px; font-size: 14px;
+}
+.sw-lead-form button {
+  width: 100%; background: #f5a623; color: #0f2a43; border: none; border-radius: 8px;
+  padding: 11px; font-size: 15px; font-weight: 800; cursor: pointer;
+}
+.sw-lead-form button:hover { background: #d98d0b; }
+@media (max-width: 480px) {
+  #sw-chat-panel { right: 10px; bottom: 84px; max-width: calc(100vw - 20px); }
+  #sw-chat-btn { right: 14px; bottom: 14px; }
+}
+/* Draggable widget */
+#sw-chat-btn { cursor: grab; touch-action: none; }
+#sw-chat-btn.sw-dragging { cursor: grabbing; transition: none; transform: none; }
+#sw-chat-head { cursor: grab; touch-action: none; user-select: none; -webkit-user-select: none; }
+#sw-chat-head.sw-dragging { cursor: grabbing; }
